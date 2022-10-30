@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "c6648eea-c514-404e-b444-10f26250752f",
+		"name": "WorkTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24139262"
+	},
+	"item": [
+		{
+			"name": "Report-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7035/api/report/user/per-month?userId=1&month=10",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"report",
+						"user",
+						"per-month"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						},
+						{
+							"key": "month",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create report",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 1,\r\n  \"annotation\": \"string\",\r\n  \"hours\": 4,\r\n  \"date\": \"2022-10-30T04:32:29.267Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7035/api/report/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"report",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update report",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": 1,\r\n  \"annotation\": \"string\",\r\n  \"hours\": 8,\r\n  \"date\": \"2022-10-30T04:34:39.795Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7035/api/report/update?reportId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"report",
+						"update"
+					],
+					"query": [
+						{
+							"key": "reportId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete report",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7035/api/report/delete?reportId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"report",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "reportId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7035/api/user/user-list",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"user",
+						"user-list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@mail.ru\",\r\n  \"surname\": \"string\",\r\n  \"name\": \"string\",\r\n  \"patronymic\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7035/api/user/create",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"truru@gmail.com\",\r\n  \"surname\": \"string\",\r\n  \"name\": \"string\",\r\n  \"patronymic\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7035/api/user/update?userId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"user",
+						"update"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7035/api/user/delete?userId=3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7035",
+					"path": [
+						"api",
+						"user",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
