@@ -57,7 +57,7 @@ namespace WorkTracker.Data.Repositories
             if (String.IsNullOrEmpty(user.Name))
                 throw new Exception($"Имя пользователя должно быть заполнено");
 
-            var emails = _context.Users.Where(x => x.Email == user.Email);
+            var emails = _context.Users.Where(x => x.Email == user.Email && x.Id != user.Id);
             if (emails.Any())
                 throw new Exception($"Такой email уже существует");
 

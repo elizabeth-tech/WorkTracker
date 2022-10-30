@@ -94,6 +94,8 @@ try
     app.UseRouting();
     app.MapControllers();
 
+    SeedData.Generate(app);
+
     app.Run();
 }
 catch (Exception exception)
