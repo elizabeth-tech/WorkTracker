@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkTracker.Api</name>
+    </assembly>
+    <members>
+        <member name="T:WorkTracker.Api.Controllers.ReportController">
+            <summary>
+            Контроллер для работы с отчетами
+            </summary>
+        </member>
+        <member name="F:WorkTracker.Api.Controllers.ReportController._reportService">
+            <summary>
+            Сервис для работы с отчетами
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.ReportController.#ctor(WorkTracker.BusinessLogic.Services.ReportService.IReportService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="reportService">Сервис для работы с отчетами</param>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.ReportController.GetReportsOnUserPerMonthAsync(System.Int64,System.Int32)">
+            <summary>
+            Получить список отчетов для пользователя за указанный месяц
+            </summary>
+            <param name="userId">ID пользователя</param>
+            <param name="month">Номер месяца</param>
+            <response code="200">Список отчетов успешно получен</response>
+            <response code="400">Ошибка входящих параметров запроса или заданный пользователь не найден</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.ReportController.CreateReportAsync(WorkTracker.Contracts.Models.Report.ReportInputDto)">
+            <summary>
+            Создать отчет для пользователя
+            </summary>
+            <param name="reportInputDto">Входные данные отчета</param>
+            <response code="200">Отчет успешно создан</response>
+            <response code="400">Ошибка входящих параметров запроса</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.ReportController.UpdateReportAsync(System.Int64,WorkTracker.Contracts.Models.Report.ReportInputDto)">
+            <summary>
+            Обновить данные отчета пользователя
+            </summary>
+            <param name="reportId">ID отчета</param>
+            <param name="reportInputDto">Входные данные отчета</param>
+            <response code="200">Данные отчета успешно обновлены</response>
+            <response code="400">Ошибка входящих параметров запроса или отчет не найден</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.ReportController.DeleteReportAsync(System.Int64)">
+            <summary>
+            Удалить данные отчета пользователя
+            </summary>
+            <param name="reportId">ID отчета</param>
+            <response code="200">Данные отчета успешно удалены</response>
+            <response code="400">Ошибка входящих параметров запроса или отчет не найден</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="T:WorkTracker.Api.Controllers.UserController">
+            <summary>
+            Контроллер для работы с пользователями
+            </summary>
+        </member>
+        <member name="F:WorkTracker.Api.Controllers.UserController._userService">
+            <summary>
+            Сервис для работы с пользователями
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.UserController.#ctor(WorkTracker.BusinessLogic.Services.UserService.IUserService)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="userService">Сервис для работы с пользователями</param>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.UserController.GetUsersAsync">
+            <summary>
+            Получить список всех пользователей
+            </summary>
+            <response code="200">Список пользователей успешно получен</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.UserController.CreateUserAsync(WorkTracker.Contracts.Models.User.UserInputDto)">
+            <summary>
+            Создать нового пользователя
+            </summary>
+            <param name="userInputDto">Входные данные пользователя</param>
+            <response code="200">Пользователь успешно создан</response>
+            <response code="400">Ошибка входящих параметров запроса</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.UserController.UpdateUserAsync(System.Int64,WorkTracker.Contracts.Models.User.UserInputDto)">
+            <summary>
+            Обновить данные пользователя
+            </summary>
+            <param name="userId">ID пользователя</param>
+            <param name="userInputDto">Входные данные пользователя</param>
+            <response code="200">Данные пользователя успешно обновлены</response>
+            <response code="400">Ошибка входящих параметров запроса</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="M:WorkTracker.Api.Controllers.UserController.DeleteUserAsync(System.Int64)">
+            <summary>
+            Удалить пользователя
+            </summary>
+            <param name="userId">ID пользователя</param>
+            <response code="200">Пользователь успешно удален</response>
+            <response code="400">Ошибка входящих параметров запроса</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+            <returns></returns>
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.AppModule">
+            <summary>
+            Основной модуль DI
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.AppModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.AutoMapperModule">
+            <summary>
+            Модуль DI для AutoMapper
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.AutoMapperModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.ControllerModule">
+            <summary>
+            Модуль DI для контроллеров
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.ControllerModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.LoggerModule">
+            <summary>
+            Модуль DI для логирования
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.LoggerModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.ServiceModule">
+            <summary>
+            Модуль DI для сервисов
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.ServiceModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Autofac.ValidatorModule">
+            <summary>
+            Модуль DI для валидаторов
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Autofac.ValidatorModule.Load(Autofac.ContainerBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Native.DbModule">
+            <summary>
+            Модуль DI для базы данных
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Native.DbModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Установить зависимости
+            </summary>
+            <param name="services">Коллекция дескрипторов служб</param>
+            <param name="configuration">Конфигурация приложения</param>
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Native.NativeAppModule">
+            <summary>
+            Основной модуль DI
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Native.NativeAppModule.#ctor(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <inheritdoc />
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Native.OptionsModule">
+            <summary>
+            Модуль DI для общих настроек
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Native.OptionsModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Установить зависимости
+            </summary>
+            <param name="services">Коллекция дескрипторов служб</param>
+            <param name="configuration">Конфигурация приложения</param>
+        </member>
+        <member name="T:WorkTracker.Api.IoC.Native.SwaggerModule">
+            <summary>
+            Модуль DI для Swagger
+            </summary>
+        </member>
+        <member name="M:WorkTracker.Api.IoC.Native.SwaggerModule.Load(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Установить зависимости
+            </summary>
+            <param name="services">Коллекция дескрипторов служб</param>
+        </member>
+    </members>
+</doc>
